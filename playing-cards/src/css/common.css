@@ -1,0 +1,14 @@
+@import url('./reset.css');
+
+:root {
+  --theme-color: violet;
+  --color-white: #fff;
+  --color-black: #1f1f1f;
+}
+
+.container {
+  max-width: 64em;
+  margin: 0 auto;
+  padding: 3rem 1rem;
+  box-sizing: border-box;
+}
