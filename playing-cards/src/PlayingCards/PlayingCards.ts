@@ -138,6 +138,8 @@ export class PlayingCards extends LitElement {
   }
 
   check(d: any): boolean {
+    // For Joker
+    if (d.num === 0 && (this.color || this.divide)) return false;
     let result = false;
     const this_color =
       d.mark === 'heart' || d.mark === 'diamond' ? 'red' : 'black';
