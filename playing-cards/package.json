@@ -19,7 +19,10 @@
     "lit": "^2.0.0"
   },
   "devDependencies": {
-    "vite": "^2.6.4",
-    "typescript": "^4.3.2"
+    "@typescript-eslint/eslint-plugin": "^5.5.0",
+    "@typescript-eslint/parser": "^5.5.0",
+    "eslint": "^8.4.0",
+    "typescript": "^4.3.2",
+    "vite": "^2.6.4"
   }
 }
