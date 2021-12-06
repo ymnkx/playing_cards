@@ -1,9 +1,13 @@
 import { LitElement, css, html } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
-import { playing_cards_data } from './PlayingCardsData';
+import { playing_cards_data, CardType } from './PlayingCardsData';
 
+interface HTMLElementEvent<T extends HTMLElement> extends Event {
+  target: T;
+}
 type ColorType = 'red' | 'black' | null;
 type DivideType = 'even' | 'odd' | null;
+
 
 @customElement('playing-cards')
 export class PlayingCards extends LitElement {
@@ -127,7 +131,7 @@ export class PlayingCards extends LitElement {
     </div>`;
   }
 
-  cancelCheck(ev: any) {
+  cancelCheck(ev:HTMLElementEvent<HTMLInputElement>) {
     if (ev.target.value === this.divide) this.divide = null;
     if (ev.target.value === this.color) this.color = null;
   }
@@ -137,7 +141,9 @@ export class PlayingCards extends LitElement {
     this.color = null;
   }
 
-  check(d: any): boolean {
+  check(d: CardType): boolean {
+    // For Joker
+    if (d.num === 0 && (this.color || this.divide)) return false;
     let result = false;
     const this_color =
       d.mark === 'heart' || d.mark === 'diamond' ? 'red' : 'black';

@@ -1,5 +1,5 @@
+export interface CardType { num: number, mark: string }
 export type mark_type = 'spade' | 'heart' | 'diamond' | 'club';
-
 export const translateNum: { [num: number]: string } = {
   0: '',
   1: 'A',
@@ -26,9 +26,9 @@ const shuffle = ([...array]) => {
 };
 
 export const playing_cards_data = (() => {
-  let cards = [];
+  const cards:Array<CardType> = [];
   for (let i = 1; i <= 13; i++) {
-    for (let m of ['spade', 'heart', 'diamond', 'club']) {
+    for (const m of ['spade', 'heart', 'diamond', 'club']) {
       cards.push({
         num: i,
         mark: m,
